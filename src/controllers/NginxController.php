@@ -1,7 +1,7 @@
 <?php
 
 /*
- * HiDev config for Nginx
+ * HiDev Nginx plugin
  *
  * @link      https://github.com/hiqdev/hidev-nginx
  * @package   hidev-nginx
