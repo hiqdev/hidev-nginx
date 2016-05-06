@@ -1,0 +1,12 @@
+package:
+    name:   test.dev
+
+nginx:
+    testA:
+        domain:     test-a.dev
+        webDir:     /www/a.dev
+    testB:
+        domain:     test-b.dev
+        webDir:     /www/b.dev
+        ssl:        true
+        sslPath:    /ssl/cert
