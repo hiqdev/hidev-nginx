@@ -2,11 +2,10 @@ package:
     name:   test.dev
 
 nginx:
-    testA:
-        domain:     test-a.dev
+    fpmSocket:  unix:/run/php/php7.0-fpm.sock
+    test-a.dev:
         webDir:     /www/a.dev
-    testB:
-        domain:     test-b.dev
+    test-b.dev:
         webDir:     /www/b.dev
         ssl:        true
         sslPath:    /ssl/cert

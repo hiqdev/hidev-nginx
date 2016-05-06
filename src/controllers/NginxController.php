@@ -91,6 +91,11 @@ class NginxController extends \hidev\controllers\CommonController
         return reset($dirs);
     }
 
+    public function setFpmSocket($value)
+    {
+        $this->_fpmSocket = $value;
+    }
+
     public function getFpmSocket()
     {
         if ($this->_fpmSocket === null) {
