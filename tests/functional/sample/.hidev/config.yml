@@ -1,11 +1,18 @@
 package:
-    name:   test.dev
+    name:   test-0.dev
 
 nginx:
     fpmSocket:  unix:/run/php/php7.0-fpm.sock
+    default:
+        webDir:     /www/0.dev
     test-a.dev:
         webDir:     /www/a.dev
     test-b.dev:
         webDir:     /www/b.dev
         ssl:        true
         sslPath:    /ssl/cert
+    c:
+        domain:     test-c.dev
+        logDir:     /home/logs
+        webDir:     /www/c.dev
+        fpmSocket:  unix:/run/php/php5.0-fpm.sock

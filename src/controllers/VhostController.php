@@ -46,7 +46,7 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function getDomain()
     {
-        if ($this->_domain === null) {
+        if ($this->_domain === null || $this->_domain === 'default') {
             $this->_domain = $this->takePackage()->name;
         }
 
@@ -98,6 +98,11 @@ class VhostController extends \hidev\controllers\CommonController
         }
 
         return $this->_logDir;
+    }
+
+    public function setFpmSocket($value)
+    {
+        $this->_fpmSocket = $value;
     }
 
     public function getFpmSocket()
