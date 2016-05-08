@@ -11,6 +11,8 @@
 
 namespace hidev\nginx\controllers;
 
+use hidev\base\File;
+use hidev\modifiers\Sudo;
 use Yii;
 
 /**
@@ -28,10 +30,44 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function actionDump()
     {
-        foreach ($this->getItems() as $key => $vhost) {
+        foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
             file_put_contents($vhost->getDomain() . '.conf', $conf);
         }
+    }
+
+    public function actionDeploy()
+    {
+        if (!file_exists($this->getEtcDir())) {
+            throw new InvalidParamException('Non existing Nginx etcDir: ' . $this->getEtcDir());
+        }
+        $enabledDir   = $this->getEtcDir() . '/sites-enabled';
+        $availableDir = $this->getEtcDir() . '/sites-available';
+        $this->mkdir($enabledDir);
+        $this->mkdir($availableDir);
+        foreach ($this->getItems() as $vhost) {
+            $conf = $vhost->renderConf();
+            $name = $vhost->getDomain() . '.conf';
+            $dest = $enabledDir . '/' . $name;
+            $file = File::plain($availableDir . '/' . $name);
+            $file->save($conf);
+            $file->symlink($enabledDir . '/' . $name);
+        }
+        $this->actionRestart();
+    }
+
+    public function actionRestart()
+    {
+        return $this->passthru('service', ['nginx', 'restart', Sudo::create()]);
+    }
+
+    public static function mkdir($path)
+    {
+        if (file_exists($path)) {
+            return true;
+        }
+
+        return mkdir($path, 0777, true);
     }
 
     /**
@@ -59,7 +95,7 @@ class NginxController extends \hidev\controllers\CommonController
     public function getLogDir()
     {
         if ($this->_logDir === null) {
-            $this->_logDir = '/var/log/php';
+            $this->_logDir = '/var/log/nginx';
         }
 
         return $this->_logDir;
@@ -83,7 +119,7 @@ class NginxController extends \hidev\controllers\CommonController
     {
         $dirs = ['/etc/nginx', '/usr/local/etc/nginx'];
         foreach ($dirs as $dir) {
-            if (dir_exists($dir)) {
+            if (is_dir($dir)) {
                 return $dir;
             }
         }
