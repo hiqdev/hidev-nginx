@@ -11,6 +11,7 @@
 
 namespace hidev\nginx\controllers;
 
+use hidev\modifiers\Sudo;
 use Yii;
 
 /**
@@ -25,12 +26,20 @@ class VhostController extends \hidev\controllers\CommonController
 
     public $ssl;
 
-    protected $_sslPath;
+    protected $_sslDir;
     protected $_ip;
     protected $_domain;
     protected $_webDir;
     protected $_logDir;
     protected $_fpmSocket;
+
+    public function actionChmodSsl()
+    {
+        $dir = $this->getSslDir();
+        $this->passthru('chown', ['-R', 'www-data', $dir, Sudo::create()]);
+        $this->passthru('chgrp', ['-R', 'www-data', $dir, Sudo::create()]);
+        $this->passthru('chmod', ['-R', 'o-rwx',    $dir, Sudo::create()]);
+    }
 
     public function renderConf()
     {
@@ -114,13 +123,13 @@ class VhostController extends \hidev\controllers\CommonController
         return $this->_fpmSocket;
     }
 
-    public function setSslPath($value)
+    public function setSslDir($value)
     {
-        $this->_sslPath = $value;
+        $this->_sslDir = $value;
     }
 
-    public function getSslPath()
+    public function getSslDir()
     {
-        return Yii::getAlias($this->_sslPath);
+        return Yii::getAlias($this->_sslDir);
     }
 }

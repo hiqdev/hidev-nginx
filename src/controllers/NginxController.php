@@ -13,12 +13,13 @@ namespace hidev\nginx\controllers;
 
 use hidev\base\File;
 use hidev\modifiers\Sudo;
+use Exception;
 use Yii;
 
 /**
  * Goal for Nginx.
  */
-class NginxController extends \hidev\controllers\CommonController
+class NginxController extends \hidev\controllers\AbstractController
 {
     use \hiqdev\yii2\collection\ManagerTrait;
 
@@ -43,8 +44,8 @@ class NginxController extends \hidev\controllers\CommonController
         }
         $enabledDir   = $this->getEtcDir() . '/sites-enabled';
         $availableDir = $this->getEtcDir() . '/sites-available';
-        $this->mkdir($enabledDir);
-        $this->mkdir($availableDir);
+        static::mkdir($enabledDir);
+        static::mkdir($availableDir);
         foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
             $name = $vhost->getDomain() . '.conf';
@@ -56,9 +57,78 @@ class NginxController extends \hidev\controllers\CommonController
         $this->actionRestart();
     }
 
+    public function actionStart()
+    {
+        return $this->actionPerform('start');
+    }
+
+    public function actionStop()
+    {
+        return $this->actionPerform('stop');
+    }
+
+    public function actionReload()
+    {
+        return $this->actionPerform('reload');
+    }
+
     public function actionRestart()
     {
-        return $this->passthru('service', ['nginx', 'restart', Sudo::create()]);
+        return $this->actionPerform('restart');
+    }
+
+    public function actionStatus()
+    {
+        return $this->actionPerform('status', false);
+    }
+
+    public function actionPerform($operation, $sudo = true)
+    {
+        $args = ['nginx', $operation];
+        if ($sudo) {
+            array_push($args, Sudo::create());
+        }
+
+        return $this->passthru('service', $args);
+    }
+
+    public function actionLetsencrypt($aliases = [])
+    {
+        foreach ($this->getItems() as $vhost) {
+            $domain = $vhost->getDomain();
+            $sslDir = $vhost->getSslDir();
+            if (!$vhost->ssl || !$sslDir) {
+                continue;
+            }
+            $args = [
+                'certonly', '-a', 'webroot',
+                '--webroot-path=' . $vhost->getWebDir(),
+                '-d', $domain,
+            ];
+            if (!is_array($aliases)) {
+                $aliases = explode(',', trim($aliases));
+            }
+            foreach ($aliases as $alias) {
+                $alias = trim($alias);
+                if ($alias) {
+                    array_push($args, '-d');
+                    array_push($args, $alias);
+                }
+            }
+            if ($this->passthru('/opt/letsencrypt/letsencrypt-auto', $args)) {
+                throw new Exception('failed letsencrypt');
+            }
+            static::mkdir($sslDir);
+            $this->passthru('sh', ['-c', "cp /etc/letsencrypt/live/$domain/* $sslDir", Sudo::create()]);
+            $vhost->actionChmodSsl();
+        }
+    }
+
+    public function actionChmodSsl()
+    {
+        foreach ($this->getItems() as $vhost) {
+            $vhost->actionChmodSsl();
+        }
     }
 
     public static function mkdir($path)

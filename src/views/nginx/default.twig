@@ -15,8 +15,8 @@ server {
     ssl                   on;
     ssl_session_cache     shared:SSL:10m;
     ssl_session_timeout   10m;
-    ssl_certificate       {{ this.sslPath }}.crt;
-    ssl_certificate_key   {{ this.sslPath }}.key;
+    ssl_certificate       {{ this.sslDir }}/fullchain.pem;
+    ssl_certificate_key   {{ this.sslDir }}/privkey.pem;
     ssl_protocols         SSLv3 TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers           "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
     ssl_prefer_server_ciphers on;
