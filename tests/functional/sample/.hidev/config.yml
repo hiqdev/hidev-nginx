@@ -10,7 +10,7 @@ nginx:
     test-b.dev:
         webDir:     /www/b.dev
         ssl:        true
-        sslPath:    /ssl/cert
+        sslDir:     /ssl/test-b.dev
     c:
         domain:     test-c.dev
         logDir:     /home/logs
