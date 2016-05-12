@@ -3,9 +3,16 @@
 server {
     listen          {{ this.ip }}:80;
     server_name     {{ this.serverName }};
-    error_log       {{ this.logDir }}/$host-error.log info;
+    root            {{ this.webDir }};
+    error_log       {{ this.logDir }}/{{ this.domain }}-error.log info;
     access_log      off;
-    rewrite         (.*) https://{{ this.domain }}$1;
+
+    location ~ /.well-known {
+        allow all;
+    }
+    location / {
+        rewrite (.*) https://{{ this.domain }}$1;
+    }
 }
 
 server {
@@ -33,8 +40,7 @@ server {
 {% endif %}
 
 server {
-    listen {{ this.ssl ? '127.0.0.1' : this.ip }}:80;
-
+    listen          {{ this.ssl ? '127.0.0.1' : this.ip }}:80;
     server_name     {{ this.serverName }};
     root            {{ this.webDir }};
 
