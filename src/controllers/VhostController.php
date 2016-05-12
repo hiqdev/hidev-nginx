@@ -26,6 +26,8 @@ class VhostController extends \hidev\controllers\CommonController
 
     public $ssl;
 
+    public $_aliases = [];
+
     protected $_sslDir;
     protected $_ip;
     protected $_domain;
@@ -138,5 +140,25 @@ class VhostController extends \hidev\controllers\CommonController
         }
 
         return $this->_sslDir;
+    }
+    public function setAliases($aliases)
+    {
+        if (!is_array($aliases)) {
+            $aliases = preg_split('/[\s,]+/', trim($aliases));
+        }
+        $this->_aliases = $aliases;
+    }
+
+    public function getAliases()
+    {
+        return $this->_aliases;
+    }
+
+    public function getServerName()
+    {
+        $names = $this->getAliases();
+        array_unshift($names, $this->getDomain());
+
+        return implode(' ', $names);
     }
 }
