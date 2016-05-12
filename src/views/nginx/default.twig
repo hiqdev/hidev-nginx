@@ -1,24 +1,24 @@
 {% if this.ssl %}
 
 server {
-    listen        {{ this.ip }}:80;
-    server_name   {{ this.serverName }};
-    error_log     {{ this.logDir }}/$host-error.log info;
-    access_log    off;
-    rewrite       (.*) https://{{ this.domain }}$1;
+    listen          {{ this.ip }}:80;
+    server_name     {{ this.serverName }};
+    error_log       {{ this.logDir }}/$host-error.log info;
+    access_log      off;
+    rewrite         (.*) https://{{ this.domain }}$1;
 }
 
 server {
-    listen        {{ this.ip }}:443;
-    server_name   {{ this.serverName }};
+    listen          {{ this.ip }}:443;
+    server_name     {{ this.serverName }};
 
-    ssl                   on;
-    ssl_session_cache     shared:SSL:10m;
-    ssl_session_timeout   10m;
-    ssl_certificate       {{ this.sslDir }}/fullchain.pem;
-    ssl_certificate_key   {{ this.sslDir }}/privkey.pem;
-    ssl_protocols         SSLv3 TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers           "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl                       on;
+    ssl_session_cache         shared:SSL:10m;
+    ssl_session_timeout       10m;
+    ssl_certificate           {{ this.sslDir }}/fullchain.pem;
+    ssl_certificate_key       {{ this.sslDir }}/privkey.pem;
+    ssl_protocols             SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers               "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
     ssl_prefer_server_ciphers on;
 
     location / {
