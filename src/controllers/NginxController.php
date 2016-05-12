@@ -11,9 +11,9 @@
 
 namespace hidev\nginx\controllers;
 
+use Exception;
 use hidev\base\File;
 use hidev\modifiers\Sudo;
-use Exception;
 use Yii;
 
 /**
@@ -39,7 +39,7 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function actionDeploy($aliases = [])
     {
-        return $this->runActions(['before', 'do-deploy', 'after']);
+        return $this->perform('do-deploy');
     }
 
     public function actionDoDeploy()
@@ -64,30 +64,30 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function actionStart()
     {
-        return $this->do('start');
+        return $this->make('start');
     }
 
     public function actionStop()
     {
-        return $this->do('stop');
+        return $this->make('stop');
     }
 
     public function actionReload()
     {
-        return $this->do('reload');
+        return $this->make('reload');
     }
 
     public function actionRestart()
     {
-        return $this->do('restart');
+        return $this->make('restart');
     }
 
     public function actionStatus()
     {
-        return $this->do('status', false);
+        return $this->make('status', false);
     }
 
-    public function do($operation, $sudo = true)
+    public function make($operation, $sudo = true)
     {
         $args = ['nginx', $operation];
         if ($sudo) {
@@ -99,12 +99,12 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function actionMake()
     {
-        return $this->do($this->performName ?: 'status');
+        return $this->make($this->performName ?: 'status');
     }
 
     public function actionLetsencrypt()
     {
-        return $this->runActions(['before', 'do-letsencrypt', 'after']);
+        return $this->perform('do-letsencrypt');
     }
 
     public function actionDoLetsencrypt()
