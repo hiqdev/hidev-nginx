@@ -4,6 +4,13 @@ hiqdev/hidev-nginx commits history
 ## Under development
 
 - Added Let's Encrypt integration
+    - 8c9b014 2016-05-12 fixed test case according to changes (sol@hiqdev.com)
+    - 5d2ae9d 2016-05-12 renamed `do` -> `make` (sol@hiqdev.com)
+    - 4d971e6 2016-05-12 added `VhostController::getDomains` (sol@hiqdev.com)
+    - 1a2c6c8 2016-05-12 + allow well-known for letsencrypt (sol@hiqdev.com)
+    - c271ba9 2016-05-12 csfixed (sol@hiqdev.com)
+    - 215b457 2016-05-12 enabled before and after in nginx goal (sol@hiqdev.com)
+    - 9ee4d6e 2016-05-12 added `aliases` (sol@hiqdev.com)
     - bfcfded 2016-05-12 fixed pathes building (sol@hiqdev.com)
     - a7d46eb 2016-05-11 used asset-packagist.org and hidev-config moved to src/config (sol@hiqdev.com)
     - b7d7eb1 2016-05-11 fixed functional test (sol@hiqdev.com)
