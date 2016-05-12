@@ -102,7 +102,7 @@ class NginxController extends \hidev\controllers\CommonController
         return $this->do($this->performName ?: 'status');
     }
 
-    public function actionLetsencrupt()
+    public function actionLetsencrypt()
     {
         return $this->runActions(['before', 'do-letsencrypt', 'after']);
     }
@@ -112,17 +112,10 @@ class NginxController extends \hidev\controllers\CommonController
         foreach ($this->getItems() as $vhost) {
             $domain = $vhost->getDomain();
             $sslDir = $vhost->getSslDir();
-            $args = [
-                'certonly', '-a', 'webroot',
-                '--webroot-path=' . $vhost->getWebDir(),
-                '-d', $domain,
-            ];
-            foreach ($vhost->getAliases() as $alias) {
-                $alias = trim($alias);
-                if ($alias) {
-                    array_push($args, '-d');
-                    array_push($args, $alias);
-                }
+            $args = ['certonly', '-a', 'webroot', '--webroot-path=' . $vhost->getWebDir()];
+            foreach (array_reverse($vhost->getDomains()) as $name) {
+                array_push($args, '-d');
+                array_push($args, $name);
             }
             if ($this->passthru('/opt/letsencrypt/letsencrypt-auto', $args)) {
                 throw new Exception('failed letsencrypt');

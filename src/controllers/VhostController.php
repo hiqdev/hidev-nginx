@@ -154,11 +154,16 @@ class VhostController extends \hidev\controllers\CommonController
         return $this->_aliases;
     }
 
+    public function getDomains()
+    {
+        $domains = $this->getAliases();
+        array_unshift($domains, $this->getDomain());
+
+        return $domains;
+    }
+
     public function getServerName()
     {
-        $names = $this->getAliases();
-        array_unshift($names, $this->getDomain());
-
-        return implode(' ', $names);
+        return implode(' ', $this->getDomains());
     }
 }
