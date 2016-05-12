@@ -83,13 +83,13 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setWebDir($value)
     {
-        $this->_webDir = $value;
+        $this->_webDir = Yii::getAlias($value);
     }
 
     public function getWebDir()
     {
         if ($this->_webDir === null) {
-            $this->_webDir = $this->takeGoal('start')->getRootDir() . '/web';
+            $this->_webDir = $this->takeGoal('start')->buildRootPath('web');
         }
 
         return $this->_webDir;
@@ -97,7 +97,7 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setLogDir($value)
     {
-        $this->_logDir = $value;
+        $this->_logDir = Yii::getAlias($value);
     }
 
     public function getLogDir()
@@ -125,11 +125,18 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setSslDir($value)
     {
-        $this->_sslDir = $value;
+        $this->_sslDir = Yii::getAlias($value);
+        if ($this->_sslDir[0] !== '/') {
+            $this->_sslDir = $this->takeGoal('start')->buildRootPath($this->_sslDir);
+        }
     }
 
     public function getSslDir()
     {
-        return Yii::getAlias($this->_sslDir);
+        if ($this->_sslDir === null) {
+            $this->_sslDir = $this->takeGoal('start')->buildRootPath('ssl');
+        }
+
+        return $this->_sslDir;
     }
 }

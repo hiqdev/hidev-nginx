@@ -39,20 +39,20 @@ class NginxController extends \hidev\controllers\AbstractController
 
     public function actionDeploy()
     {
-        if (!file_exists($this->getEtcDir())) {
-            throw new InvalidParamException('Non existing Nginx etcDir: ' . $this->getEtcDir());
+        $etcDir = $this->getEtcDir();
+        if (!is_dir($etcDir)) {
+            throw new InvalidParamException("Non existing Nginx etcDir: $etcDir");
         }
-        $enabledDir   = $this->getEtcDir() . '/sites-enabled';
-        $availableDir = $this->getEtcDir() . '/sites-available';
+        $enabledDir   = $etcDir . DIRECTORY_SEPARATOR . 'sites-enabled';
+        $availableDir = $etcDir . DIRECTORY_SEPARATOR . 'sites-available';
         static::mkdir($enabledDir);
         static::mkdir($availableDir);
         foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
             $name = $vhost->getDomain() . '.conf';
-            $dest = $enabledDir . '/' . $name;
-            $file = File::plain($availableDir . '/' . $name);
+            $file = File::plain($availableDir . DIRECTORY_SEPARATOR . $name);
             $file->save($conf);
-            $file->symlink($enabledDir . '/' . $name);
+            $file->symlink($enabledDir . DIRECTORY_SEPARATOR . $name);
         }
         $this->actionRestart();
     }
@@ -97,9 +97,6 @@ class NginxController extends \hidev\controllers\AbstractController
         foreach ($this->getItems() as $vhost) {
             $domain = $vhost->getDomain();
             $sslDir = $vhost->getSslDir();
-            if (!$vhost->ssl || !$sslDir) {
-                continue;
-            }
             $args = [
                 'certonly', '-a', 'webroot',
                 '--webroot-path=' . $vhost->getWebDir(),
