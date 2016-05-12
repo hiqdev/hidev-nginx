@@ -215,7 +215,7 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function findFpmSocketFile()
     {
-        $files = ['/run/php/php7.0-fpm.sock', '/var/run/php5-fpm.sock'];
+        $files = ['/run/php/php7.0-fpm.sock', '/var/run/php5-fpm.sock', '/tmp/php-fpm.sock'];
         foreach ($files as $file) {
             if (file_exists($file)) {
                 return $file;
