@@ -4,6 +4,7 @@ hiqdev/hidev-nginx commits history
 ## Under development
 
 - Added Let's Encrypt integration
+    - bfcfded 2016-05-12 fixed pathes building (sol@hiqdev.com)
     - a7d46eb 2016-05-11 used asset-packagist.org and hidev-config moved to src/config (sol@hiqdev.com)
     - b7d7eb1 2016-05-11 fixed functional test (sol@hiqdev.com)
     - 3c808f8 2016-05-11 + LetsEncrypt integration (sol@hiqdev.com)

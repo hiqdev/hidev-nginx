@@ -19,7 +19,7 @@ use Yii;
 /**
  * Goal for Nginx.
  */
-class NginxController extends \hidev\controllers\AbstractController
+class NginxController extends \hidev\controllers\CommonController
 {
     use \hiqdev\yii2\collection\ManagerTrait;
 
@@ -37,7 +37,12 @@ class NginxController extends \hidev\controllers\AbstractController
         }
     }
 
-    public function actionDeploy()
+    public function actionDeploy($aliases = [])
+    {
+        return $this->runActions(['before', 'do-deploy', 'after']);
+    }
+
+    public function actionDoDeploy()
     {
         $etcDir = $this->getEtcDir();
         if (!is_dir($etcDir)) {
@@ -59,30 +64,30 @@ class NginxController extends \hidev\controllers\AbstractController
 
     public function actionStart()
     {
-        return $this->actionPerform('start');
+        return $this->do('start');
     }
 
     public function actionStop()
     {
-        return $this->actionPerform('stop');
+        return $this->do('stop');
     }
 
     public function actionReload()
     {
-        return $this->actionPerform('reload');
+        return $this->do('reload');
     }
 
     public function actionRestart()
     {
-        return $this->actionPerform('restart');
+        return $this->do('restart');
     }
 
     public function actionStatus()
     {
-        return $this->actionPerform('status', false);
+        return $this->do('status', false);
     }
 
-    public function actionPerform($operation, $sudo = true)
+    public function do($operation, $sudo = true)
     {
         $args = ['nginx', $operation];
         if ($sudo) {
@@ -92,7 +97,17 @@ class NginxController extends \hidev\controllers\AbstractController
         return $this->passthru('service', $args);
     }
 
-    public function actionLetsencrypt($aliases = [])
+    public function actionMake()
+    {
+        return $this->do($this->performName ?: 'status');
+    }
+
+    public function actionLetsencrupt()
+    {
+        return $this->runActions(['before', 'do-letsencrypt', 'after']);
+    }
+
+    public function actionDoLetsencrypt()
     {
         foreach ($this->getItems() as $vhost) {
             $domain = $vhost->getDomain();
@@ -102,10 +117,7 @@ class NginxController extends \hidev\controllers\AbstractController
                 '--webroot-path=' . $vhost->getWebDir(),
                 '-d', $domain,
             ];
-            if (!is_array($aliases)) {
-                $aliases = explode(',', trim($aliases));
-            }
-            foreach ($aliases as $alias) {
+            foreach ($vhost->getAliases() as $alias) {
                 $alias = trim($alias);
                 if ($alias) {
                     array_push($args, '-d');

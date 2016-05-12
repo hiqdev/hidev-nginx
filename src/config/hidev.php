@@ -14,6 +14,7 @@ return [
         'config' => [
             'nginx' => [
                 'class' => 'hidev\nginx\controllers\NginxController',
+                'default' => [],
             ],
             'views' => [
                 '@hidev/nginx/views',
