@@ -1,6 +1,11 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## Under development
+
+- Fixed tests
+    - 1b237cd 2016-05-13 fixed functional tests with assertFiles (sol@hiqdev.com)
+
 ## 0.0.1 2016-05-13
 
 - Fixed dependencies constraints
