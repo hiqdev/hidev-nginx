@@ -33,9 +33,8 @@ class NginxTest extends \PHPUnit_Framework_TestCase
 
     public function testMinimal()
     {
-        $this->tester->config(__DIR__ . '/sample/.hidev/config.yml');
+        $this->tester->config(__DIR__ . '/minimal/.hidev/config.yml');
         $this->tester->hidev('nginx/dump');
-        $this->tester->assertFile('test-a.dev.conf', __DIR__ . '/sample/test-a.dev.conf');
-        $this->tester->assertFile('test-b.dev.conf', __DIR__ . '/sample/test-b.dev.conf');
+        $this->tester->assertFiles(__DIR__ . '/minimal', ['.']);
     }
 }
