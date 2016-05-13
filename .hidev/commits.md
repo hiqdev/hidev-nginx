@@ -1,9 +1,13 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
-## Under development
+## 0.0.1 2016-05-13
 
+- Fixed dependencies constraints
+    - 8cbb8d7 2016-05-13 fixed dependencies constraints (sol@hiqdev.com)
+    - c880ceb 2016-05-13 fixing dependencies constraints (sol@hiqdev.com)
 - Added Let's Encrypt integration
+    - 230e3de 2016-05-12 + `/tmp/php-fpm.sock` fpm socket variant (sol@hiqdev.com)
     - 8c9b014 2016-05-12 fixed test case according to changes (sol@hiqdev.com)
     - 5d2ae9d 2016-05-12 renamed `do` -> `make` (sol@hiqdev.com)
     - 4d971e6 2016-05-12 added `VhostController::getDomains` (sol@hiqdev.com)

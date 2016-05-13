@@ -1,8 +1,9 @@
 hiqdev/hidev-nginx changelog
 ----------------------------
 
-## Under development
+## 0.0.1 2016-05-13
 
+- Fixed dependencies constraints
 - Added Let's Encrypt integration
 - Added basics
 
