@@ -42,7 +42,7 @@
         }
     ],
     "require": {
-        "hiqdev/composer-extension-plugin": "<2.0 || dev-master"
+        "hiqdev/composer-extension-plugin": "<2.0"
     },
     "require-dev": {
         "hiqdev/hidev": "dev-master",
