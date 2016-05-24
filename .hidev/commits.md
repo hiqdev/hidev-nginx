@@ -1,6 +1,12 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## 0.4.0 2016-05-24
+
+- Changed: redone to `composer-config-plugin`
+    - 986e83e 2016-05-24 fixed tests (sol@hiqdev.com)
+    - c205e6f 2016-05-24 redone to `composer-config-plugin` (sol@hiqdev.com)
+
 ## 0.0.2 2016-05-13
 
 - Fixed tests

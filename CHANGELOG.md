@@ -1,6 +1,10 @@
 hiqdev/hidev-nginx changelog
 ----------------------------
 
+## 0.4.0 2016-05-24
+
+- Changed: redone to `composer-config-plugin`
+
 ## 0.0.2 2016-05-13
 
 - Fixed tests
