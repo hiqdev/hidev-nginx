@@ -63,7 +63,9 @@ server {
         include          fastcgi_params;
         fastcgi_pass     {{ this.fpmSocket }};
         fastcgi_param    SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    {% if this.ssl %}
         fastcgi_param    REMOTE_ADDR $http_x_real_ip;
+    {% endif %}
         fastcgi_param    HTTP_REFERER $http_referer;
         fastcgi_param    PHP_VALUE "
             error_log = {{ this.logDir }}/{{ this.domain }}-php.log
