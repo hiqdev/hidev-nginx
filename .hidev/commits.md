@@ -1,6 +1,13 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## 0.4.1
+
+- Fixed X-Real-IP when ssl is disabled
+    - cf7fa7e 2016-05-30 csfixed (sol@hiqdev.com)
+    - 7403c56 2016-05-30 fixed x-real-ip when ssh is disabled (sol@hiqdev.com)
+    - 297ec05 2016-05-24 used `hiqdev/hidev-hiqdev` (sol@hiqdev.com)
+
 ## 0.4.0 2016-05-24
 
 - Changed: redone to `composer-config-plugin`
