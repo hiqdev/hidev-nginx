@@ -141,6 +141,7 @@ class VhostController extends \hidev\controllers\CommonController
 
         return $this->_sslDir;
     }
+
     public function setAliases($aliases)
     {
         if (!is_array($aliases)) {
