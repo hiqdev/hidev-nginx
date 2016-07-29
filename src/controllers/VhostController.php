@@ -29,7 +29,8 @@ class VhostController extends \hidev\controllers\CommonController
     public $_aliases = [];
 
     protected $_sslDir;
-    protected $_ip;
+    protected $_ips = [];
+    protected $_localIps = [];
     protected $_domain;
     protected $_webDir;
     protected $_logDir;
@@ -64,23 +65,37 @@ class VhostController extends \hidev\controllers\CommonController
         return $this->_domain;
     }
 
-    public function setIp($value)
+    public function setIps($value)
     {
-        $this->_ip = $value;
+        $this->_ips = $value;
     }
 
-    public function getIp()
+    public function getIps()
     {
-        if ($this->_ip === null) {
-            $this->_ip = $this->findIp();
+        if ($this->_ips === null || $this->_ips === []) {
+            $this->_ips = $this->findIps();
         }
 
-        return $this->_ip;
+        return $this->_ips;
     }
 
-    public function findIp()
+    public function findIps()
     {
-        return gethostbyname($this->getDomain()) ?: '127.0.0.1';
+        return [gethostbyname($this->getDomain()) ?: '127.0.0.1'];
+    }
+
+    public function setLocalIps($value)
+    {
+        $this->_localIps = $value;
+    }
+
+    public function getLocalIps()
+    {
+        if ($this->_localIps === null || $this->_localIps === []) {
+            $this->_localIps = $this->ssl ? ['127.0.0.1'] : $this->getIps();
+        }
+
+        return $this->_localIps;
     }
 
     public function setWebDir($value)

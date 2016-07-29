@@ -10,12 +10,22 @@ nginx:
     test-b.dev:
         webDir:     /www/b.dev
         ssl:        true
-        sslDir:     /ssl/test-b.dev
+        sslDir:     /ssl/b.dev
     c:
         domain:     test-c.dev
         logDir:     /home/logs
         webDir:     /www/c.dev
         fpmSocket:  unix:/run/php/php5.0-fpm.sock
+    test-e.dev:
+        webDir:     /www/e.dev
+        sslDir:     /ssl/e.dev
+        ssl:        true
+        ips:       
+            - 1.1.1.1
+            - 2.2.2.2
+        localIps:
+            - 10.0.0.1
+            - 10.0.0.2
 
 aliases:
     '@hidev/nginx': ../../../src
