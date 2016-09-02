@@ -65,9 +65,14 @@ class VhostController extends \hidev\controllers\CommonController
         return $this->_domain;
     }
 
+    public function setIp($value)
+    {
+        $this->_ips = [$value];
+    }
+
     public function setIps($value)
     {
-        $this->_ips = $value;
+        $this->_ips = is_array($value) ? $value : [$value];
     }
 
     public function getIps()

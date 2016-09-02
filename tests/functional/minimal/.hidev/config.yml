@@ -26,6 +26,12 @@ nginx:
         localIps:
             - 10.0.0.1
             - 10.0.0.2
+    test-f.dev:
+        webDir:     /www/f.dev
+        ip:         3.3.3.3
+    test-g.dev:
+        webDir:     /www/g.dev
+        ips:        "*"
 
 aliases:
     '@hidev/nginx': ../../../src
