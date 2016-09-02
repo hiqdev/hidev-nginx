@@ -20,7 +20,7 @@ nginx:
         webDir:     /www/e.dev
         sslDir:     /ssl/e.dev
         ssl:        true
-        ips:       
+        ips:
             - 1.1.1.1
             - 2.2.2.2
         localIps:
