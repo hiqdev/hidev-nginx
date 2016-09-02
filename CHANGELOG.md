@@ -1,7 +1,7 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
-## [Under development]
+## [0.4.2] - 2016-09-02
 
 - Added multiple ips and local ips
 

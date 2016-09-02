@@ -1,9 +1,10 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
-## [Under development]
+## [0.4.2] - 2016-09-02
 
 - Added multiple ips and local ips
+    - [d0c7ba5] 2016-09-02 used `chkipper` [sol@hiqdev.com]
     - [3b8fcdc] 2016-07-29 added multiple ips and local ips [sol@hiqdev.com]
     - [00bc8a8] 2016-05-30 fixed tests [sol@hiqdev.com]
 
@@ -81,3 +82,4 @@ hiqdev/hidev-nginx commits history
 [eeffa35]: https://github.com/hiqdev/hidev-nginx/commit/eeffa35
 [3b8fcdc]: https://github.com/hiqdev/hidev-nginx/commit/3b8fcdc
 [00bc8a8]: https://github.com/hiqdev/hidev-nginx/commit/00bc8a8
+[d0c7ba5]: https://github.com/hiqdev/hidev-nginx/commit/d0c7ba5
