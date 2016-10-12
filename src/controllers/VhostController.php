@@ -91,7 +91,7 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setLocalIps($value)
     {
-        $this->_localIps = $value;
+        $this->_localIps = is_array($value) ? $value : [$value];
     }
 
     public function getLocalIps()
