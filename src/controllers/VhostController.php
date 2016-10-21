@@ -72,12 +72,12 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setIps($value)
     {
-        $this->_ips = is_array($value) ? $value : [$value];
+        $this->_ips = is_array($value) ? array_unique($value) : [$value];
     }
 
     public function getIps()
     {
-        if ($this->_ips === null || $this->_ips === []) {
+        if (empty($this->_ips)) {
             $this->_ips = $this->findIps();
         }
 
@@ -91,12 +91,12 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setLocalIps($value)
     {
-        $this->_localIps = is_array($value) ? $value : [$value];
+        $this->_localIps = is_array($value) ? array_unique($value) : [$value];
     }
 
     public function getLocalIps()
     {
-        if ($this->_localIps === null || $this->_localIps === []) {
+        if (empty($this->_localIps)) {
             $this->_localIps = $this->ssl ? ['127.0.0.1'] : $this->getIps();
         }
 
