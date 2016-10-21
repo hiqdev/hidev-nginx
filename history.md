@@ -1,6 +1,13 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## [0.4.3] - 2016-10-21
+
+- Fixed `setLocalIps()`
+    - [3ab36c2] 2016-10-21 fixed IPs doubling [sol@hiqdev.com]
+    - [3f3d62b] 2016-10-12 fixed setLocalIps() [sol@hiqdev.com]
+    - [4ef1798] 2016-09-02 added ip read-only property to VhostController [sol@hiqdev.com]
+
 ## [0.4.2] - 2016-09-02
 
 - Added multiple ips and local ips
@@ -83,3 +90,6 @@ hiqdev/hidev-nginx commits history
 [3b8fcdc]: https://github.com/hiqdev/hidev-nginx/commit/3b8fcdc
 [00bc8a8]: https://github.com/hiqdev/hidev-nginx/commit/00bc8a8
 [d0c7ba5]: https://github.com/hiqdev/hidev-nginx/commit/d0c7ba5
+[3ab36c2]: https://github.com/hiqdev/hidev-nginx/commit/3ab36c2
+[3f3d62b]: https://github.com/hiqdev/hidev-nginx/commit/3f3d62b
+[4ef1798]: https://github.com/hiqdev/hidev-nginx/commit/4ef1798

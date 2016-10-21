@@ -1,6 +1,10 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## [0.4.3] - 2016-10-21
+
+- Fixed `setLocalIps()`
+
 ## [0.4.2] - 2016-09-02
 
 - Added multiple ips and local ips
