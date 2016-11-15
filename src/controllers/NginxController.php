@@ -29,12 +29,17 @@ class NginxController extends \hidev\controllers\CommonController
 
     public $defaultClass = VhostController::class;
 
-    public function actionDump()
+    public function actionDoDump()
     {
         foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
             file_put_contents($vhost->getDomain() . '.conf', $conf);
         }
+    }
+
+    public function actionDump()
+    {
+        return $this->perform('do-dump');
     }
 
     public function actionDeploy($aliases = [])
