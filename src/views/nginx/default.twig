@@ -59,6 +59,9 @@ server {
     access_log      {{ this.logDir }}/{{ this.domain }}-access.log combined;
 
     fastcgi_index   index.php;
+{% if this.timeout %}
+    fastcgi_read_timeout {{ this.timeout }};
+{% endif %}
 
     location / {
         # Redirect everything that isn't a real file to index.php

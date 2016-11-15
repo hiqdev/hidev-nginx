@@ -24,6 +24,11 @@ class VhostController extends \hidev\controllers\CommonController
      */
     public $nginx;
 
+    /**
+     * @var integer
+     */
+    public $timeout;
+
     public $ssl;
 
     public $_aliases = [];
