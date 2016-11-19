@@ -1,6 +1,13 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
+## [0.4.4] - 2016-11-15
+
+- Fixed `dump` action
+    - [249e5d4] 2016-11-15 fixed `dump` action: used perform for before/after [sol@hiqdev.com]
+- Added vhost response `timeout` option
+    - [c29edec] 2016-11-15 Added vhost response timeout option [d.naumenko.a@gmail.com]
+
 ## [0.4.3] - 2016-10-21
 
 - Fixed `setLocalIps()`
@@ -93,3 +100,5 @@ hiqdev/hidev-nginx commits history
 [3ab36c2]: https://github.com/hiqdev/hidev-nginx/commit/3ab36c2
 [3f3d62b]: https://github.com/hiqdev/hidev-nginx/commit/3f3d62b
 [4ef1798]: https://github.com/hiqdev/hidev-nginx/commit/4ef1798
+[249e5d4]: https://github.com/hiqdev/hidev-nginx/commit/249e5d4
+[c29edec]: https://github.com/hiqdev/hidev-nginx/commit/c29edec
