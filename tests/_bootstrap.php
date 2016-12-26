@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * HiDev Nginx plugin
  *
  * @link      https://github.com/hiqdev/hidev-nginx
