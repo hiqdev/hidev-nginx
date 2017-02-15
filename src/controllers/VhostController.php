@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * HiDev Nginx plugin
  *
  * @link      https://github.com/hiqdev/hidev-nginx
@@ -39,6 +40,7 @@ class VhostController extends \hidev\controllers\CommonController
     protected $_webDir;
     protected $_logDir;
     protected $_fpmSocket;
+    protected $_additionalConfig;
 
     public function actionChmodSsl()
     {
@@ -190,5 +192,15 @@ class VhostController extends \hidev\controllers\CommonController
     public function getServerName()
     {
         return implode(' ', $this->getDomains());
+    }
+
+    public function getAdditionalConfig()
+    {
+        return $this->_additionalConfig;
+    }
+
+    public function setAdditionalConfig($additinalConfig)
+    {
+        $this->_additionalConfig = $additinalConfig;
     }
 }
