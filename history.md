@@ -1,73 +1,92 @@
 hiqdev/hidev-nginx commits history
 ----------------------------------
 
-## [0.4.4] - 2016-11-15
+## [Under development]
+
+- Added vhost additionalConfig
+    - [6b1133c] 2017-02-15 csfixed [@hiqsol]
+    - [844cc89] 2017-02-15 added vhost additionalConfig [@hiqsol]
+    - [b7f3765] 2016-12-26 csfixed [@hiqsol]
+- Fixed vhost config with `is_args` and `client_max_body_size`
+    - [0742b17] 2016-12-12 Added `client_max_body_size` to nginx config [@SilverFire]
+    - [c119255] 2016-11-24 fixed tests for `is_args` [@hiqsol]
+    - [7be0bd3] 2016-11-24 used `$is_args` nginx variable [@hiqsol]
+
+## [0.4.4] - 2016-11-19
 
 - Fixed `dump` action
-    - [249e5d4] 2016-11-15 fixed `dump` action: used perform for before/after [sol@hiqdev.com]
+    - [249e5d4] 2016-11-15 fixed `dump` action: used perform for before/after [@hiqsol]
 - Added vhost response `timeout` option
-    - [c29edec] 2016-11-15 Added vhost response timeout option [d.naumenko.a@gmail.com]
+    - [c29edec] 2016-11-15 Added vhost response timeout option [@SilverFire]
 
 ## [0.4.3] - 2016-10-21
 
 - Fixed `setLocalIps()`
-    - [3ab36c2] 2016-10-21 fixed IPs doubling [sol@hiqdev.com]
-    - [3f3d62b] 2016-10-12 fixed setLocalIps() [sol@hiqdev.com]
-    - [4ef1798] 2016-09-02 added ip read-only property to VhostController [sol@hiqdev.com]
+    - [3ab36c2] 2016-10-21 fixed IPs doubling [@hiqsol]
+    - [3f3d62b] 2016-10-12 fixed setLocalIps() [@hiqsol]
+    - [4ef1798] 2016-09-02 added ip read-only property to VhostController [@hiqsol]
 
 ## [0.4.2] - 2016-09-02
 
 - Added multiple ips and local ips
-    - [d0c7ba5] 2016-09-02 used `chkipper` [sol@hiqdev.com]
-    - [3b8fcdc] 2016-07-29 added multiple ips and local ips [sol@hiqdev.com]
-    - [00bc8a8] 2016-05-30 fixed tests [sol@hiqdev.com]
+    - [d0c7ba5] 2016-09-02 used `chkipper` [@hiqsol]
+    - [3b8fcdc] 2016-07-29 added multiple ips and local ips [@hiqsol]
+    - [00bc8a8] 2016-05-30 fixed tests [@hiqsol]
 
 ## [0.4.1] - 2016-05-30
 
 - Fixed X-Real-IP when ssl is disabled
-    - [cf7fa7e] 2016-05-30 csfixed [sol@hiqdev.com]
-    - [7403c56] 2016-05-30 fixed x-real-ip when ssh is disabled [sol@hiqdev.com]
-    - [297ec05] 2016-05-24 used `hiqdev/hidev-hiqdev` [sol@hiqdev.com]
+    - [cf7fa7e] 2016-05-30 csfixed [@hiqsol]
+    - [7403c56] 2016-05-30 fixed x-real-ip when ssh is disabled [@hiqsol]
+    - [297ec05] 2016-05-24 used `hiqdev/hidev-hiqdev` [@hiqsol]
 
 ## [0.4.0] - 2016-05-24
 
 - Changed: redone to `composer-config-plugin`
-    - [986e83e] 2016-05-24 fixed tests [sol@hiqdev.com]
-    - [c205e6f] 2016-05-24 redone to `composer-config-plugin` [sol@hiqdev.com]
+    - [986e83e] 2016-05-24 fixed tests [@hiqsol]
+    - [c205e6f] 2016-05-24 redone to `composer-config-plugin` [@hiqsol]
 
 ## [0.0.2] - 2016-05-13
 
 - Fixed tests
-    - [1b237cd] 2016-05-13 fixed functional tests with assertFiles [sol@hiqdev.com]
+    - [1b237cd] 2016-05-13 fixed functional tests with assertFiles [@hiqsol]
 
 ## [0.0.1] - 2016-05-13
 
 - Fixed dependencies constraints
-    - [8cbb8d7] 2016-05-13 fixed dependencies constraints [sol@hiqdev.com]
-    - [c880ceb] 2016-05-13 fixing dependencies constraints [sol@hiqdev.com]
+    - [8cbb8d7] 2016-05-13 fixed dependencies constraints [@hiqsol]
+    - [c880ceb] 2016-05-13 fixing dependencies constraints [@hiqsol]
 - Added Let's Encrypt integration
-    - [230e3de] 2016-05-12 + `/tmp/php-fpm.sock` fpm socket variant [sol@hiqdev.com]
-    - [8c9b014] 2016-05-12 fixed test case according to changes [sol@hiqdev.com]
-    - [5d2ae9d] 2016-05-12 renamed `do` -> `make` [sol@hiqdev.com]
-    - [4d971e6] 2016-05-12 added `VhostController::getDomains` [sol@hiqdev.com]
-    - [1a2c6c8] 2016-05-12 + allow well-known for letsencrypt [sol@hiqdev.com]
-    - [c271ba9] 2016-05-12 csfixed [sol@hiqdev.com]
-    - [215b457] 2016-05-12 enabled before and after in nginx goal [sol@hiqdev.com]
-    - [9ee4d6e] 2016-05-12 added `aliases` [sol@hiqdev.com]
-    - [bfcfded] 2016-05-12 fixed pathes building [sol@hiqdev.com]
-    - [a7d46eb] 2016-05-11 used asset-packagist.org and hidev-config moved to src/config [sol@hiqdev.com]
-    - [b7d7eb1] 2016-05-11 fixed functional test [sol@hiqdev.com]
-    - [3c808f8] 2016-05-11 + LetsEncrypt integration [sol@hiqdev.com]
-    - [d981b7d] 2016-05-08 + nginx deploy and restart actions [sol@hiqdev.com]
+    - [230e3de] 2016-05-12 + `/tmp/php-fpm.sock` fpm socket variant [@hiqsol]
+    - [8c9b014] 2016-05-12 fixed test case according to changes [@hiqsol]
+    - [5d2ae9d] 2016-05-12 renamed `do` -> `make` [@hiqsol]
+    - [4d971e6] 2016-05-12 added `VhostController::getDomains` [@hiqsol]
+    - [1a2c6c8] 2016-05-12 + allow well-known for letsencrypt [@hiqsol]
+    - [c271ba9] 2016-05-12 csfixed [@hiqsol]
+    - [215b457] 2016-05-12 enabled before and after in nginx goal [@hiqsol]
+    - [9ee4d6e] 2016-05-12 added `aliases` [@hiqsol]
+    - [bfcfded] 2016-05-12 fixed pathes building [@hiqsol]
+    - [a7d46eb] 2016-05-11 used asset-packagist.org and hidev-config moved to src/config [@hiqsol]
+    - [b7d7eb1] 2016-05-11 fixed functional test [@hiqsol]
+    - [3c808f8] 2016-05-11 + LetsEncrypt integration [@hiqsol]
+    - [d981b7d] 2016-05-08 + nginx deploy and restart actions [@hiqsol]
 - Added basics
-    - [ea1f5b0] 2016-05-07 added default vhost with same name [sol@hiqdev.com]
-    - [56019ba] 2016-05-06 csfixed [sol@hiqdev.com]
-    - [ad8e303] 2016-05-06 fixed tests [sol@hiqdev.com]
-    - [e592bcd] 2016-05-06 added functional tests [sol@hiqdev.com]
-    - [eeffa35] 2016-05-06 inited [sol@hiqdev.com]
+    - [ea1f5b0] 2016-05-07 added default vhost with same name [@hiqsol]
+    - [56019ba] 2016-05-06 csfixed [@hiqsol]
+    - [ad8e303] 2016-05-06 fixed tests [@hiqsol]
+    - [e592bcd] 2016-05-06 added functional tests [@hiqsol]
+    - [eeffa35] 2016-05-06 inited [@hiqsol]
 
 ## [Development started] - 2016-05-06
 
+[@hiqsol]: https://github.com/hiqsol
+[sol@hiqdev.com]: https://github.com/hiqsol
+[@SilverFire]: https://github.com/SilverFire
+[d.naumenko.a@gmail.com]: https://github.com/SilverFire
+[@tafid]: https://github.com/tafid
+[andreyklochok@gmail.com]: https://github.com/tafid
+[@BladeRoot]: https://github.com/BladeRoot
+[bladeroot@gmail.com]: https://github.com/BladeRoot
 [cf7fa7e]: https://github.com/hiqdev/hidev-nginx/commit/cf7fa7e
 [7403c56]: https://github.com/hiqdev/hidev-nginx/commit/7403c56
 [297ec05]: https://github.com/hiqdev/hidev-nginx/commit/297ec05
@@ -102,3 +121,17 @@ hiqdev/hidev-nginx commits history
 [4ef1798]: https://github.com/hiqdev/hidev-nginx/commit/4ef1798
 [249e5d4]: https://github.com/hiqdev/hidev-nginx/commit/249e5d4
 [c29edec]: https://github.com/hiqdev/hidev-nginx/commit/c29edec
+[6b1133c]: https://github.com/hiqdev/hidev-nginx/commit/6b1133c
+[844cc89]: https://github.com/hiqdev/hidev-nginx/commit/844cc89
+[b7f3765]: https://github.com/hiqdev/hidev-nginx/commit/b7f3765
+[0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
+[c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
+[7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...HEAD
+[0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
+[0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
+[0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
+[0.4.1]: https://github.com/hiqdev/hidev-nginx/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/hiqdev/hidev-nginx/compare/0.0.2...0.4.0
+[0.0.2]: https://github.com/hiqdev/hidev-nginx/compare/0.0.1...0.0.2
+[0.0.1]: https://github.com/hiqdev/hidev-nginx/releases/tag/0.0.1

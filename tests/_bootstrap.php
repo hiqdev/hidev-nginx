@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(-1);
 date_default_timezone_set('UTC');
 
 require_once __DIR__ . '/../vendor/autoload.php';
