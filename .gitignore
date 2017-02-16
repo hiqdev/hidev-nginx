@@ -36,8 +36,3 @@ phpunit.phar
 # HiSite directories
 runtime/*
 web/assets/*
-
-# created files
-src/_bootstrap.php
-src/config/
-web/
