@@ -1,7 +1,6 @@
-hiqdev/hidev-nginx commits history
-----------------------------------
+# hiqdev/hidev-nginx
 
-## [Under development]
+## [0.4.5] - 2017-02-16
 
 - Added vhost additionalConfig
     - [2705216] 2017-02-16 fixed tests [@hiqsol]
@@ -137,3 +136,4 @@ hiqdev/hidev-nginx commits history
 [0.0.2]: https://github.com/hiqdev/hidev-nginx/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/hidev-nginx/releases/tag/0.0.1
 [2705216]: https://github.com/hiqdev/hidev-nginx/commit/2705216
+[0.4.5]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...0.4.5
