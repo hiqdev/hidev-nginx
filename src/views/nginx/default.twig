@@ -33,6 +33,9 @@ server {
     ssl_prefer_server_ciphers on;
 
     client_max_body_size 128M;
+{% if this.timeout %}
+    fastcgi_read_timeout {{ this.timeout }};
+{% endif %}
 
     location / {
         proxy_pass http://{{ this.localIps | first }}:80;
