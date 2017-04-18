@@ -1,5 +1,4 @@
-HiDev Nginx
-===========
+# HiDev Nginx
 
 **HiDev Nginx plugin**
 
