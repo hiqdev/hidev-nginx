@@ -1,5 +1,10 @@
 # hiqdev/hidev-nginx
 
+## [0.4.6] - 2017-04-18
+
+- Added vhost `domains` option ([@hiqsol])
+- Added `fastcgi_read_timeout` nginx option ([@SilverFire])
+
 ## [0.4.5] - 2017-02-16
 
 - Added vhost additionalConfig ([@hiqsol])
@@ -46,7 +51,7 @@
 [andreyklochok@gmail.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@gmail.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -55,3 +60,4 @@
 [0.0.2]: https://github.com/hiqdev/hidev-nginx/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/hiqdev/hidev-nginx/releases/tag/0.0.1
 [0.4.5]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...0.4.5
+[0.4.6]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...0.4.6

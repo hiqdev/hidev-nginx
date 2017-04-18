@@ -1,5 +1,14 @@
 # hiqdev/hidev-nginx
 
+## [0.4.6] - 2017-04-18
+
+- Added vhost `domains` option
+    - [5ab365a] 2017-04-18 csfixed [@hiqsol]
+    - [8b5d309] 2017-04-18 switched to phpunit 6 [@hiqsol]
+    - [18c2731] 2017-04-18 added `VhostController::setDomains` for vhost.domains option [@hiqsol]
+- Added `fastcgi_read_timeout` nginx option
+    - [1003884] 2017-03-12 Added `fastcgi_read_timeout` option [@SilverFire]
+
 ## [0.4.5] - 2017-02-16
 
 - Added vhost additionalConfig
@@ -127,7 +136,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -137,3 +146,8 @@
 [0.0.1]: https://github.com/hiqdev/hidev-nginx/releases/tag/0.0.1
 [2705216]: https://github.com/hiqdev/hidev-nginx/commit/2705216
 [0.4.5]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...0.4.5
+[5ab365a]: https://github.com/hiqdev/hidev-nginx/commit/5ab365a
+[8b5d309]: https://github.com/hiqdev/hidev-nginx/commit/8b5d309
+[18c2731]: https://github.com/hiqdev/hidev-nginx/commit/18c2731
+[1003884]: https://github.com/hiqdev/hidev-nginx/commit/1003884
+[0.4.6]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...0.4.6
