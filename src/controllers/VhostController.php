@@ -58,7 +58,16 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function setDomain($value)
     {
-        $this->_domain = $value;
+        $this->_domain = trim($value);
+    }
+
+    public function setDomains($domains)
+    {
+        if (!is_array($domains)) {
+            $domains = preg_split('/[\s,]+/', trim($domains));
+        }
+        $this->_domain = array_shift($domains);
+        $this->_aliases = $domains;
     }
 
     public function getDomain()
