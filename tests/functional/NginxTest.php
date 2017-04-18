@@ -12,7 +12,7 @@ namespace hidev\nginx\tests\functional;
 
 use hidev\tests\functional\Tester;
 
-class NginxTest extends \PHPUnit_Framework_TestCase
+class NginxTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \FunctionalTester
