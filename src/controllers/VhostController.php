@@ -100,7 +100,12 @@ class VhostController extends \hidev\controllers\CommonController
 
     public function findIps()
     {
-        return [gethostbyname($this->getDomain()) ?: '127.0.0.1'];
+        $ips = gethostbyname($this->getDomain());
+        if ($ips === $this->getDomain()) {
+            $ips = '';
+        }
+
+        return [$ips ?: '127.0.0.1'];
     }
 
     public function setLocalIps($value)
