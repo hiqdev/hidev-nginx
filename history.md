@@ -1,5 +1,11 @@
 # hiqdev/hidev-nginx
 
+## [0.5.0] - 2017-04-24
+
+- Fixed getting IP with `gethostbyname`
+    - [a7da99d] 2017-04-24 csfixed [@hiqsol]
+    - [14534e3] 2017-04-24 fixed getting ip with `gethostbyname` [@hiqsol]
+
 ## [0.4.6] - 2017-04-18
 
 - Added vhost `domains` option
@@ -136,7 +142,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -151,3 +157,6 @@
 [18c2731]: https://github.com/hiqdev/hidev-nginx/commit/18c2731
 [1003884]: https://github.com/hiqdev/hidev-nginx/commit/1003884
 [0.4.6]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...0.4.6
+[14534e3]: https://github.com/hiqdev/hidev-nginx/commit/14534e3
+[a7da99d]: https://github.com/hiqdev/hidev-nginx/commit/a7da99d
+[0.5.0]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...0.5.0
