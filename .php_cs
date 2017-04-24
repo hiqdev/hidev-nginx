@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<EOF
-HiDev Nginx plugin
+Nginx plugin for HiDev
 
 @link      https://github.com/hiqdev/hidev-nginx
 @package   hidev-nginx

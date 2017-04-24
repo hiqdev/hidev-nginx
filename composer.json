@@ -1,7 +1,7 @@
 {
     "name": "hiqdev/hidev-nginx",
     "type": "yii2-extension",
-    "description": "HiDev Nginx plugin",
+    "description": "Nginx plugin for HiDev",
     "keywords": [
         "hidev",
         "nginx"
