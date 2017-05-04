@@ -4,7 +4,6 @@ package:
     title:          Nginx plugin for HiDev
     headline:       HiDev Nginx
     keywords:       hidev, nginx
-    namespace:      hidev\nginx
     description:    |
         [HiDev] is the automation tool mixed with
         code generator for easier continuous development.

@@ -9,15 +9,18 @@
  */
 
 return [
+    'controllerMap' => [
+        'nginx' => [
+            'class' => \hidev\nginx\console\NginxController::class,
+        ],
+    ],
     'components' => [
-        'config' => [
-            'nginx' => [
-                'class' => 'hidev\nginx\controllers\NginxController',
-                'default' => [],
-            ],
-            'views' => [
-                '@hidev/nginx/views',
-            ],
+        'nginx' => [
+            'class' => \hidev\nginx\components\Nginx::class,
+            'default' => [],
+        ],
+        'views' => [
+            '@hidev/nginx/views',
         ],
     ],
 ];
