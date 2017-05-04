@@ -8,18 +8,18 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\nginx\controllers;
+namespace hidev\nginx\components;
 
 use hidev\modifiers\Sudo;
 use Yii;
 
 /**
- * Goal for Nginx virtual host.
+ * NGINX virtual host component.
  */
-class VhostController extends \hidev\controllers\CommonController
+class Vhost extends \hidev\base\Component
 {
     /**
-     * @var NginxController
+     * @var Nginx
      */
     public $nginx;
 
@@ -41,7 +41,7 @@ class VhostController extends \hidev\controllers\CommonController
     protected $_fpmSocket;
     protected $_additionalConfig;
 
-    public function actionChmodSsl()
+    public function chmodSSL()
     {
         $dir = $this->getSslDir();
         $this->passthru('chown', ['-R', 'www-data', $dir, Sudo::create()]);

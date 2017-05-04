@@ -19,8 +19,12 @@ return [
             'class' => \hidev\nginx\components\Nginx::class,
             'default' => [],
         ],
-        'views' => [
-            '@hidev/nginx/views',
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@hidev/views' => ['@hidev/nginx/views'],
+                ],
+            ],
         ],
     ],
 ];

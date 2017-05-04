@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
  */
 
-namespace hidev\nginx\controllers;
+namespace hidev\nginx\components;
 
 use Exception;
 use hidev\base\File;
@@ -16,9 +16,9 @@ use hidev\modifiers\Sudo;
 use Yii;
 
 /**
- * Goal for Nginx.
+ * nginx component.
  */
-class NginxController extends \hidev\controllers\CommonController
+class Nginx extends \hidev\base\Component
 {
     use \hiqdev\yii2\collection\ManagerTrait;
 
@@ -26,27 +26,17 @@ class NginxController extends \hidev\controllers\CommonController
     protected $_etcDir;
     protected $_fpmSocket;
 
-    public $defaultClass = VhostController::class;
+    public $defaultClass = Vhost::class;
 
-    public function actionDoDump()
+    public function dump()
     {
         foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
-            file_put_contents($vhost->getDomain() . '.conf', $conf);
+            File::plain($vhost->getDomain() . '.conf')->save($conf);
         }
     }
 
-    public function actionDump()
-    {
-        return $this->perform('do-dump');
-    }
-
-    public function actionDeploy($aliases = [])
-    {
-        return $this->perform('do-deploy');
-    }
-
-    public function actionDoDeploy()
+    public function deploy()
     {
         $etcDir = $this->getEtcDir();
         if (!is_dir($etcDir)) {
@@ -63,35 +53,35 @@ class NginxController extends \hidev\controllers\CommonController
             $file->save($conf);
             $file->symlink($enabledDir . DIRECTORY_SEPARATOR . $name);
         }
-        $this->actionRestart();
+        $this->restart();
     }
 
-    public function actionStart()
+    public function start()
     {
-        return $this->make('start');
+        return $this->run('start');
     }
 
-    public function actionStop()
+    public function stop()
     {
-        return $this->make('stop');
+        return $this->run('stop');
     }
 
-    public function actionReload()
+    public function Reload()
     {
-        return $this->make('reload');
+        return $this->run('reload');
     }
 
-    public function actionRestart()
+    public function Restart()
     {
-        return $this->make('restart');
+        return $this->run('restart');
     }
 
-    public function actionStatus()
+    public function Status()
     {
-        return $this->make('status', false);
+        return $this->run('status', false);
     }
 
-    public function make($operation, $sudo = true)
+    public function run($operation, $sudo = true)
     {
         $args = ['nginx', $operation];
         if ($sudo) {
@@ -101,17 +91,7 @@ class NginxController extends \hidev\controllers\CommonController
         return $this->passthru('service', $args);
     }
 
-    public function actionMake()
-    {
-        return $this->make($this->performName ?: 'status');
-    }
-
-    public function actionLetsencrypt()
-    {
-        return $this->perform('do-letsencrypt');
-    }
-
-    public function actionDoLetsencrypt()
+    public function letsencrypt()
     {
         foreach ($this->getItems() as $vhost) {
             $domain = $vhost->getDomain();
@@ -126,18 +106,18 @@ class NginxController extends \hidev\controllers\CommonController
             }
             static::mkdir($sslDir);
             $this->passthru('sh', ['-c', "cp /etc/letsencrypt/live/$domain/* $sslDir", Sudo::create()]);
-            $vhost->actionChmodSsl();
+            $vhost->chmodSSL();
         }
     }
 
-    public function actionChmodSsl()
+    public function chmodSSL()
     {
         foreach ($this->getItems() as $vhost) {
-            $vhost->actionChmodSsl();
+            $vhost->chmodSSL();
         }
     }
 
-    public static function mkdir($path)
+    private static function mkdir($path)
     {
         if (file_exists($path)) {
             return true;
@@ -160,7 +140,7 @@ class NginxController extends \hidev\controllers\CommonController
 
     public function createItem($id, $config = [])
     {
-        return Yii::createObject($this->getItemConfig($id, $config), [$id, Yii::$app]);
+        return Yii::createObject($this->getItemConfig($id, $config));
     }
 
     public function setLogDir($value)
