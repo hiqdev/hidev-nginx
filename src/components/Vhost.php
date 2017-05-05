@@ -130,7 +130,7 @@ class Vhost extends \hidev\base\Component
     public function getWebDir()
     {
         if ($this->_webDir === null) {
-            $this->_webDir = $this->takeGoal('start')->buildRootPath('web');
+            $this->_webDir = Yii::getAlias('@root/web');
         }
 
         return $this->_webDir;
@@ -168,14 +168,14 @@ class Vhost extends \hidev\base\Component
     {
         $this->_sslDir = Yii::getAlias($value);
         if ($this->_sslDir[0] !== '/') {
-            $this->_sslDir = $this->takeGoal('start')->buildRootPath($this->_sslDir);
+            $this->_sslDir = Yii::getAlias('@root/' . $this->_sslDir);
         }
     }
 
     public function getSslDir()
     {
         if ($this->_sslDir === null) {
-            $this->_sslDir = $this->takeGoal('start')->buildRootPath('ssl');
+            $this->_sslDir = Yii::getAlias('@root/ssl');
         }
 
         return $this->_sslDir;
