@@ -1,5 +1,13 @@
 # hiqdev/hidev-nginx
 
+## [0.6.0] - 2017-05-05
+
+- Redone for hidev 0.6
+    - [1ca2351] 2017-05-05 csfixed [@hiqsol]
+    - [d698f82] 2017-05-05 fixed vhost conf rendering [@hiqsol]
+    - [c31f5c4] 2017-05-04 redoing to new hidev [@hiqsol]
+    - [e9cebe9] 2017-05-04 redoing to new hidev [@hiqsol]
+
 ## [0.5.0] - 2017-04-24
 
 - Fixed getting IP with `gethostbyname`
@@ -142,7 +150,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -160,3 +168,8 @@
 [14534e3]: https://github.com/hiqdev/hidev-nginx/commit/14534e3
 [a7da99d]: https://github.com/hiqdev/hidev-nginx/commit/a7da99d
 [0.5.0]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...0.5.0
+[1ca2351]: https://github.com/hiqdev/hidev-nginx/commit/1ca2351
+[d698f82]: https://github.com/hiqdev/hidev-nginx/commit/d698f82
+[c31f5c4]: https://github.com/hiqdev/hidev-nginx/commit/c31f5c4
+[e9cebe9]: https://github.com/hiqdev/hidev-nginx/commit/e9cebe9
+[0.6.0]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...0.6.0

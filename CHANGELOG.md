@@ -1,5 +1,9 @@
 # hiqdev/hidev-nginx
 
+## [0.6.0] - 2017-05-05
+
+- Redone for hidev 0.6 ([@hiqsol])
+
 ## [0.5.0] - 2017-04-24
 
 - Fixed getting IP with `gethostbyname` ([@hiqsol])
@@ -55,7 +59,7 @@
 [andreyklochok@gmail.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@gmail.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -66,3 +70,4 @@
 [0.4.5]: https://github.com/hiqdev/hidev-nginx/compare/0.4.4...0.4.5
 [0.4.6]: https://github.com/hiqdev/hidev-nginx/compare/0.4.5...0.4.6
 [0.5.0]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...0.5.0
+[0.6.0]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...0.6.0
