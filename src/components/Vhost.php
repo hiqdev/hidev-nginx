@@ -2,7 +2,7 @@
 /**
  * Nginx plugin for HiDev.
  *
- * @see      https://github.com/hiqdev/hidev-nginx
+ * @link      https://github.com/hiqdev/hidev-nginx
  * @package   hidev-nginx
  * @license   BSD-3-Clause
  * @copyright Copyright (c) 2016-2017, HiQDev (http://hiqdev.com/)
