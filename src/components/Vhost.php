@@ -73,7 +73,7 @@ class Vhost extends \hidev\base\Component
     public function getDomain()
     {
         if ($this->_domain === null || $this->_domain === 'default') {
-            $this->_domain = $this->takePackage()->name;
+            $this->_domain = $this->take('package')->name;
         }
 
         return $this->_domain;
