@@ -1,20 +1,18 @@
 package:
     type:           yii2-extension
     name:           hidev-nginx
-    title:          Nginx plugin for HiDev
+    title:          HiDev plugin for NGINX
     headline:       HiDev Nginx
     keywords:       hidev, nginx
     description:    |
         [HiDev] is the automation tool mixed with
         code generator for easier continuous development.
 
-        This plugin provides [Nginx] management.
-
-        Provides:
+        This plugin provides [NGINX] management:
 
         - vhost files generation and deploy
         - start/stop/restart operations
         - directories autodetecting
 
-        [hidev]:    https://github.com/hiqdev/hidev
-        [nginx]:    https://nginx.com/
+        [hidev]: https://github.com/hiqdev/hidev
+        [nginx]: https://nginx.com/

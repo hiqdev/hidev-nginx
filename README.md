@@ -1,6 +1,6 @@
 # HiDev Nginx
 
-**Nginx plugin for HiDev**
+**HiDev plugin for NGINX**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/hidev-nginx/v/stable)](https://packagist.org/packages/hiqdev/hidev-nginx)
 [![Total Downloads](https://poser.pugx.org/hiqdev/hidev-nginx/downloads)](https://packagist.org/packages/hiqdev/hidev-nginx)
@@ -12,16 +12,14 @@
 [HiDev] is the automation tool mixed with
 code generator for easier continuous development.
 
-This plugin provides [Nginx] management.
-
-Provides:
+This plugin provides [NGINX] management:
 
 - vhost files generation and deploy
 - start/stop/restart operations
 - directories autodetecting
 
-[hidev]:    https://github.com/hiqdev/hidev
-[nginx]:    https://nginx.com/
+[hidev]: https://github.com/hiqdev/hidev
+[nginx]: https://nginx.com/
 
 ## Installation
 
