@@ -1,5 +1,12 @@
 # hiqdev/hidev-nginx
 
+## [0.6.1] - 2017-05-30
+
+- Fixed hidev 0.6 changes
+    - [fb47281] 2017-05-30 csfixed [@hiqsol]
+    - [b12bdfc] 2017-05-08 csfixed [@hiqsol]
+    - [25e8824] 2017-05-05 fixed take(package) [@hiqsol]
+
 ## [0.6.0] - 2017-05-05
 
 - Redone for hidev 0.6
@@ -150,7 +157,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -173,3 +180,7 @@
 [c31f5c4]: https://github.com/hiqdev/hidev-nginx/commit/c31f5c4
 [e9cebe9]: https://github.com/hiqdev/hidev-nginx/commit/e9cebe9
 [0.6.0]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...0.6.0
+[fb47281]: https://github.com/hiqdev/hidev-nginx/commit/fb47281
+[b12bdfc]: https://github.com/hiqdev/hidev-nginx/commit/b12bdfc
+[25e8824]: https://github.com/hiqdev/hidev-nginx/commit/25e8824
+[0.6.1]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...0.6.1
