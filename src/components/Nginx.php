@@ -53,7 +53,7 @@ class Nginx extends \hidev\base\Component
             $file->save($conf);
             $file->symlink($enabledDir . DIRECTORY_SEPARATOR . $name);
         }
-        $this->restart();
+        $this->reload();
     }
 
     public function start()
