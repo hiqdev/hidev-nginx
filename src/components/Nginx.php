@@ -199,7 +199,12 @@ class Nginx extends \hidev\base\Component
 
     public function findFpmSocketFile()
     {
-        $files = ['/run/php/php7.0-fpm.sock', '/var/run/php5-fpm.sock', '/tmp/php-fpm.sock'];
+        $files = [
+            '/run/php/php7.1-fpm.sock',
+            '/run/php/php7.0-fpm.sock',
+            '/var/run/php5-fpm.sock',
+            '/tmp/php-fpm.sock',
+        ];
         foreach ($files as $file) {
             if (file_exists($file)) {
                 return $file;
