@@ -101,7 +101,7 @@ class Nginx extends \hidev\base\Component
                 array_push($args, '-d');
                 array_push($args, $name);
             }
-            if ($this->passthru('/opt/letsencrypt/letsencrypt-auto', $args)) {
+            if ($this->passthru('certbot-auto', $args)) {
                 throw new Exception('failed letsencrypt');
             }
             static::mkdir($sslDir);
