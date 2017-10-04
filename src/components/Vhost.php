@@ -1,6 +1,6 @@
 <?php
 /**
- * HiDev plugin for NGINX.
+ * HiDev plugin for NGINX
  *
  * @link      https://github.com/hiqdev/hidev-nginx
  * @package   hidev-nginx
