@@ -1,5 +1,10 @@
 # hiqdev/hidev-nginx
 
+## [0.6.2] - 2017-10-04
+
+- Fixed letscrypt to use `certbot-auto` renamed from letscencrypt-auto ([@hiqsol])
+- Fixed deploy to make `reload` <- restart ([@hiqsol])
+
 ## [0.6.1] - 2017-05-30
 
 - Fixed hidev 0.6 changes ([@hiqsol])
@@ -63,7 +68,7 @@
 [andreyklochok@gmail.com]: https://github.com/tafid
 [@BladeRoot]: https://github.com/BladeRoot
 [bladeroot@gmail.com]: https://github.com/BladeRoot
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -76,3 +81,4 @@
 [0.5.0]: https://github.com/hiqdev/hidev-nginx/compare/0.4.6...0.5.0
 [0.6.0]: https://github.com/hiqdev/hidev-nginx/compare/0.5.0...0.6.0
 [0.6.1]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...0.6.1
+[0.6.2]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...0.6.2

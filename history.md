@@ -1,5 +1,14 @@
 # hiqdev/hidev-nginx
 
+## [0.6.2] - 2017-10-04
+
+- Fixed letscrypt to use `certbot-auto` renamed from letscencrypt-auto
+    - [759ef2f] 2017-10-04 csfixed [@hiqsol]
+    - [142f2cd] 2017-10-04 fixed letscrypt to use `certbot-auto` renamed from letscencrypt-auto [@hiqsol]
+- Fixed deploy to make `reload` <- restart
+    - [76fbd91] 2017-09-06 changed deploy to make `reload` <- restart [@hiqsol]
+    - [a7f5a3b] 2017-09-06 added more FPM socket variants to guess from [@hiqsol]
+
 ## [0.6.1] - 2017-05-30
 
 - Fixed hidev 0.6 changes
@@ -157,7 +166,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -184,3 +193,8 @@
 [b12bdfc]: https://github.com/hiqdev/hidev-nginx/commit/b12bdfc
 [25e8824]: https://github.com/hiqdev/hidev-nginx/commit/25e8824
 [0.6.1]: https://github.com/hiqdev/hidev-nginx/compare/0.6.0...0.6.1
+[759ef2f]: https://github.com/hiqdev/hidev-nginx/commit/759ef2f
+[142f2cd]: https://github.com/hiqdev/hidev-nginx/commit/142f2cd
+[76fbd91]: https://github.com/hiqdev/hidev-nginx/commit/76fbd91
+[a7f5a3b]: https://github.com/hiqdev/hidev-nginx/commit/a7f5a3b
+[0.6.2]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...0.6.2
