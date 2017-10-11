@@ -82,7 +82,7 @@ server {
 {% endif %}
         fastcgi_param    HTTP_REFERER $http_referer;
         fastcgi_param    PHP_VALUE "
-            error_log = {{ this.logDir }}/{{ this.domain }}-php.log
+            error_log = {{ this.phpLogDir }}/{{ this.domain }}-php.log
             error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT
         ";
         proxy_set_header Host $host;

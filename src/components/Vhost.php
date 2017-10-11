@@ -12,6 +12,7 @@ namespace hidev\nginx\components;
 
 use hidev\modifiers\Sudo;
 use Yii;
+use yii\helpers\StringHelper;
 
 /**
  * NGINX virtual host component.
@@ -38,6 +39,7 @@ class Vhost extends \hidev\base\Component
     protected $_domain;
     protected $_webDir;
     protected $_logDir;
+    protected $_phpLogDir;
     protected $_fpmSocket;
     protected $_additionalConfig;
 
@@ -134,6 +136,24 @@ class Vhost extends \hidev\base\Component
         }
 
         return $this->_webDir;
+    }
+
+    public function setPhpLogDir($value)
+    {
+        $this->_phpLogDir = Yii::getAlias($value);
+    }
+
+    public function getPhpLogDir()
+    {
+        if ($this->_phpLogDir === null) {
+            $dir = $this->getLogDir();
+            if (StringHelper::endsWith($dir, 'nginx')) {
+                $dir = substr($dir, 0, -5) . 'php';
+            }
+            $this->_phpLogDir = $dir;
+        }
+
+        return $this->_phpLogDir;
     }
 
     public function setLogDir($value)
