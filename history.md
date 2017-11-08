@@ -1,5 +1,13 @@
 # hiqdev/hidev-nginx
 
+## [0.6.3] - 2017-11-08
+
+- Fixed `setLocalIps` to split by comma and skip empty input
+    - [fde431b] 2017-11-08 added splitting localIps by comma [@hiqsol]
+    - [4b94cbe] 2017-10-11 fixed `Vhost::setLocalIps` to skip empty input [@hiqsol]
+- Added `phpLogDir` option
+    - [6fbad86] 2017-10-11 added `phpLogDir` [@hiqsol]
+
 ## [0.6.2] - 2017-10-04
 
 - Fixed letscrypt to use `certbot-auto` renamed from letscencrypt-auto
@@ -166,7 +174,7 @@
 [0742b17]: https://github.com/hiqdev/hidev-nginx/commit/0742b17
 [c119255]: https://github.com/hiqdev/hidev-nginx/commit/c119255
 [7be0bd3]: https://github.com/hiqdev/hidev-nginx/commit/7be0bd3
-[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...HEAD
+[Under development]: https://github.com/hiqdev/hidev-nginx/compare/0.6.2...HEAD
 [0.4.4]: https://github.com/hiqdev/hidev-nginx/compare/0.4.3...0.4.4
 [0.4.3]: https://github.com/hiqdev/hidev-nginx/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/hiqdev/hidev-nginx/compare/0.4.1...0.4.2
@@ -198,3 +206,7 @@
 [76fbd91]: https://github.com/hiqdev/hidev-nginx/commit/76fbd91
 [a7f5a3b]: https://github.com/hiqdev/hidev-nginx/commit/a7f5a3b
 [0.6.2]: https://github.com/hiqdev/hidev-nginx/compare/0.6.1...0.6.2
+[fde431b]: https://github.com/hiqdev/hidev-nginx/commit/fde431b
+[4b94cbe]: https://github.com/hiqdev/hidev-nginx/commit/4b94cbe
+[6fbad86]: https://github.com/hiqdev/hidev-nginx/commit/6fbad86
+[0.6.3]: https://github.com/hiqdev/hidev-nginx/compare/0.6.2...0.6.3
