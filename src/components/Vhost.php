@@ -113,6 +113,9 @@ class Vhost extends \hidev\base\Component
     public function setLocalIps($value)
     {
         if (!empty($value)) {
+            if (is_string($value) && strpos($value, ',')!==false) {
+                $value = explode(',', $value);
+            }
             $this->_localIps = is_array($value) ? array_unique($value) : [$value];
         }
     }
