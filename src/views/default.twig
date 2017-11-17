@@ -33,12 +33,12 @@ server {
     ssl_prefer_server_ciphers on;
 
     client_max_body_size 128M;
-{% if this.timeout %}
-    fastcgi_read_timeout {{ this.timeout }};
-{% endif %}
 
     location / {
         proxy_pass http://{{ this.localIps | first }}:80;
+{% if this.timeout %}
+        proxy_read_timeout {{ this.timeout }};
+{% endif %}
         proxy_redirect off;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -64,9 +64,6 @@ server {
     access_log      {{ this.logDir }}/{{ this.domain }}-access.log combined;
 
     fastcgi_index   index.php;
-{% if this.timeout %}
-    fastcgi_read_timeout {{ this.timeout }};
-{% endif %}
 
     location / {
         # Redirect everything that isn't a real file to index.php
@@ -76,6 +73,9 @@ server {
     location ~ \.php$ {
         include          fastcgi_params;
         fastcgi_pass     {{ this.fpmSocket }};
+{% if this.timeout %}
+        fastcgi_read_timeout {{ this.timeout }};
+{% endif %}
         fastcgi_param    SCRIPT_FILENAME $document_root/$fastcgi_script_name;
 {% if this.ssl %}
         set $my_real_ip $remote_addr;
