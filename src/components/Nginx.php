@@ -204,6 +204,7 @@ class Nginx extends \hidev\base\Component
     public function findFpmSocketFile()
     {
         $files = [
+            '/run/php/php7.2-fpm.sock',
             '/run/php/php7.1-fpm.sock',
             '/run/php/php7.0-fpm.sock',
             '/var/run/php5-fpm.sock',
