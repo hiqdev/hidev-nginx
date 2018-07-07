@@ -48,6 +48,10 @@ class Nginx extends \hidev\base\Component
         static::mkdir($availableDir);
         foreach ($this->getItems() as $vhost) {
             $conf = $vhost->renderConf();
+            if (!$vhost->getDomain()) {
+                Yii::warning('no domain name to put config');
+                continue;
+            }
             $name = $vhost->getDomain() . '.conf';
             $file = File::plain($availableDir . DIRECTORY_SEPARATOR . $name);
             $file->save($conf);
