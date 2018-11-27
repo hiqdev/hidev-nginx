@@ -14,6 +14,7 @@ use Exception;
 use hidev\base\File;
 use hidev\modifiers\Sudo;
 use Yii;
+use yii\base\InvalidArgumentException;
 
 /**
  * nginx component.
@@ -40,7 +41,7 @@ class Nginx extends \hidev\base\Component
     {
         $etcDir = $this->getEtcDir();
         if (!is_dir($etcDir)) {
-            throw new InvalidParamException("Non existing Nginx etcDir: $etcDir");
+            throw new InvalidArgumentException("Non existing Nginx etcDir: $etcDir");
         }
         $enabledDir   = $etcDir . DIRECTORY_SEPARATOR . 'sites-enabled';
         $availableDir = $etcDir . DIRECTORY_SEPARATOR . 'sites-available';
