@@ -137,7 +137,7 @@ class Vhost extends \hidev\base\Component
     public function getWebDir()
     {
         if ($this->_webDir === null) {
-            $this->_webDir = Yii::getAlias('@root/web');
+            $this->_webDir = Yii::getAlias('@root/public');
         }
 
         return $this->_webDir;
