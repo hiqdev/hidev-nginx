@@ -42,7 +42,7 @@
         }
     ],
     "require": {
-        "hiqdev/composer-config-plugin": "*@dev"
+        "yiisoft/composer-config-plugin": "*@dev"
     },
     "require-dev": {
         "hiqdev/hidev": "dev-master",
