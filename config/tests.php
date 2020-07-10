@@ -10,5 +10,5 @@
 
 return [
     'id' => 'hidev-nginx-tests',
-    'basePath' => dirname(__DIR__),
+    'basePath' => dirname(__DIR__) . '/src',
 ];
