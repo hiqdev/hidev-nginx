@@ -22,7 +22,7 @@ return [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@hidev/views' => ['@hidev/nginx/views'],
+                    '@hidev/views' => [dirname(__DIR__) . '/src/views'],
                 ],
             ],
         ],
